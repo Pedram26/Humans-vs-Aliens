@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-# ${1:Humans vs. Aliens}
+# Humans vs. Aliens
 A Tower Defense Game between Humans and Aliens. Kill as much as aliens you can to upgrade and discover new humans. See if you can get to the final level!
 ## Installation
 1. Python 2.7
