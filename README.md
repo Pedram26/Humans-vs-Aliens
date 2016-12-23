@@ -8,9 +8,11 @@ A Tower Defense Game between Humans and Aliens. Kill as much as aliens you can t
 ## Usage
 1. Clone or download the repository on your computer.
 2. You can simply run the 'HumansAliens.py' script to play the game if you have python and pygame installed.
+3. I have also added an executable version for Mac in which case you don't need to have neither python nor pygame installed. After you have downloaded the repository, simply open up the "HumansAliens.app" file.
+4. ENJOY!
 
 ## History
-This game was originally created for my final project for my CS class. That's why you will see some references to the UC Berkeley staff.
+This game was originally created for my final project for my CS10 class. That's why you will see some references to the UC Berkeley staff.
 
 ## Credits
 - Pedram Pourdavood
