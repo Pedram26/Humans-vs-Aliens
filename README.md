@@ -14,8 +14,7 @@ A Tower Defense Game between Humans and Aliens. Kill as much as aliens you can t
 ## History
 This game was originally created for my final project for my CS10 class. That's why you will see some references to the UC Berkeley staff.
 
-## Credits
-- Pedram Pourdavood
+## Acknowledgments
 - Davit Asatryan
 - Bardia Barahman
 
