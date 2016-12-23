@@ -1,5 +1,4 @@
 import pygame
-import time
 import random
 import os
 import sys
@@ -245,7 +244,10 @@ def draw_pause():
     font = pygame.font.SysFont(None, 30, bold=True)
     text = font.render("'P' = PAUSE",
                        True, cyan)
-    gameDisplay.blit(text, (870, 10))
+    text2 = font.render("'R' = RESTART",
+                        True, cyan)
+    gameDisplay.blit(text, (850, 10))
+    gameDisplay.blit(text2, (850, 30))
 
 
 # Drawing High Score
@@ -253,7 +255,7 @@ def high_score(lastScore):
     font = pygame.font.SysFont("None", 30, bold=True)
     text = font.render("HIGH SCORE: " + lastScore,
                        True, white)
-    gameDisplay.blit(text, (630, 10))
+    gameDisplay.blit(text, (620, 10))
 
 
 # Drawing Aliens passed
@@ -348,12 +350,12 @@ def gameOver():
                 if event.key == pygame.K_ESCAPE:
                     pygame.quit()
                     sys.exit()
-            if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     pygame.mixer.music.play(-1)
                     waiting = False
 
 
+# WINNING SCREEN
 def winning():
     pygame.mixer.music.stop()
     gameDisplay.blit(rescaledBackground, (0, 0))
@@ -379,35 +381,16 @@ def winning():
                 if event.key == pygame.K_ESCAPE:
                     pygame.quit()
                     sys.exit()
-            if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     pygame.mixer.music.play(-1)
                     waiting = False
 
 
-def level_up(level):
-    LevelUp = True
-    now = pygame.time.get_ticks()
-    while LevelUp:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    pygame.quit()
-                    sys.exit()
-        gameDisplay.blit(rescaledBackground, (0, 0))
-        drawText('LEVEL ' + str(level), font, gameDisplay, 370, 200, black)
-        pygame.display.update()
-        clock.tick(15)
-
-
 # Initializing variables and game_intro script
 game_intro()
-# level_up(1)
 game_over = False
 win = False
+restarted = False
 global aliensPassed
 aliensPassed = 0
 global killed
@@ -431,6 +414,8 @@ while True:
                     sys.exit()
                 if event.key == pygame.K_p:
                     paused()
+                if event.key == pygame.K_r:
+                    restarted = True
                 if event.key == K_SPACE:
                     if killed < 50:
                         h1.shoot()
@@ -714,9 +699,64 @@ while True:
             with open("high_score.txt", "r") as f:
                 lastScore = f.read()
 
+        # WINNING SCREEN AND RESTARTING
         if win:
             winning()
             win = False
+            enemies = pygame.sprite.Group()
+            enemies2 = pygame.sprite.Group()
+            enemies3 = pygame.sprite.Group()
+            enemies4 = pygame.sprite.Group()
+            enemies5 = pygame.sprite.Group()
+            enemies6 = pygame.sprite.Group()
+            bullets = pygame.sprite.Group()
+            human1 = pygame.sprite.Group()
+            human2 = pygame.sprite.Group()
+            human3 = pygame.sprite.Group()
+            human4 = pygame.sprite.Group()
+            human5 = pygame.sprite.Group()
+            human6 = pygame.sprite.Group()
+            h1 = Human(bernie, 10, 10, bullet1)
+            h2 = Human(arnold, 12, 15, bullet2)
+            h3 = Human(dan, 14, 20, bullet3)
+            h4 = Human(kim, 16, 25, bullet4)
+            h5 = Human(obama, 18, 30, bullet5)
+            h6 = Human(dirks, 20, 35, bullet6)
+            human1.add(h1)
+            human2.add(h2)
+            human3.add(h3)
+            human4.add(h4)
+            human5.add(h5)
+            human6.add(h6)
+            for i in range(25):
+                a = Alien(level1, 6)
+                enemies.add(a)
+            for i in range(30):
+                b = Alien(level2, 8)
+                enemies2.add(b)
+            for i in range(35):
+                c = Alien(level3, 10)
+                enemies3.add(c)
+            for i in range(32):
+                d = Alien(level4, 10.5)
+                enemies4.add(d)
+            for i in range(33):
+                e = Alien(level5, 11)
+                enemies5.add(e)
+            for i in range(34):
+                f = Alien(level6, 11.5)
+                enemies6.add(f)
+            aliensPassed = 0
+            killed = 0
+            scoreCount = 0
+            lives = 10
+            with open("high_score.txt", "r") as f:
+                lastScore = f.read()
+
+        # RESTART
+        if restarted:
+            restarted = False
+            pygame.mixer.music.play(-1)
             enemies = pygame.sprite.Group()
             enemies2 = pygame.sprite.Group()
             enemies3 = pygame.sprite.Group()
