@@ -228,7 +228,7 @@ for i in range(34):
 # Drawing Lives
 def Live(health):
     font = pygame.font.SysFont(None, 30, bold=True)
-    text = font.render("LIVES: " + str(health), True, white)
+    text = font.render("LIVES: " + str(health) + "/10", True, white)
     gameDisplay.blit(text, (10, 10))
 
 
@@ -237,7 +237,7 @@ def score(score):
     font = pygame.font.SysFont(None, 30, bold=True)
     text = font.render("SCORE: " + str(score),
                        True, white)
-    gameDisplay.blit(text, (450, 10))
+    gameDisplay.blit(text, (470, 10))
 
 
 def draw_pause():
@@ -261,8 +261,8 @@ def high_score(lastScore):
 # Drawing Aliens passed
 def aliens_passed(passed):
     font = pygame.font.SysFont(None, 30, bold=True)
-    text = font.render("ALIENS PASSED: " + str(passed), True, white)
-    gameDisplay.blit(text, (170, 10))
+    text = font.render("ALIENS PASSED: " + str(passed) + "/10", True, white)
+    gameDisplay.blit(text, (185, 10))
 
 
 def drawText(text, font, surface, x, y, color):
