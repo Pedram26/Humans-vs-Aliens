@@ -3,6 +3,8 @@ A Tower Defense Game between Humans and Aliens. Kill as much as aliens you can t
 
 Here is a vidoe of the game: [Demo Video] (https://www.youtube.com/watch?v=nf74RCtIZlM&t=14s)
 
+![Sample Image](/images/sample.png)
+
 ## Installation
 1. Python 2.7
 2. `pip install pygame`
