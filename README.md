@@ -7,7 +7,7 @@ Here is a vidoe of the game: [Demo Video] (https://www.youtube.com/watch?v=nf74R
 
 ## Installation
 1. Python 2.7
-2. `pip install pygame`
+2. `$ pip install pygame`
 
 ## Usage
 1. Clone or download the repository on your computer.
